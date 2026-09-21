@@ -57,6 +57,7 @@ int main(){
 
     printf("2-Digite a renda mensal do cliente (R$): ");
     scanf("%f", &rendaMensal);
+    getchar();
 
 ///////////////////////////////////////////////////////////
 
@@ -141,15 +142,19 @@ switch (codigoStatus) {
         tentarNovamente = 'N';
         break;
 
-   case 3:
-        printf("Status: COMPRA NEGADA!\n");
-        printf("Renda insuficiente para a faixa deste veiculo.\n");
-        qtdReprovados++;
-        
-        printf("\nDeseja tentar outro modelo? (S/N): "); 
-        scanf(" %c", &tentarNovamente);                  
-        getchar();                                       
-        break;
+case 3:
+    printf("Status: COMPRA NEGADA!\n");
+    printf("Renda insuficiente para a faixa deste veiculo.\n");
+    qtdReprovados++;
+    
+    printf("\nDeseja tentar outro modelo? (S/N): "); 
+    scanf(" %c", &tentarNovamente);                  
+    getchar();                                       
+
+    if (tentarNovamente == 'S' || tentarNovamente == 's') {
+        qtdReprovados--;
+    }
+    break;
 
     default:
         printf("Status: CÓDIGO INVÁLIDO!\n");
@@ -159,14 +164,15 @@ switch (codigoStatus) {
 
 printf("--------------------------------------------------\n");
 
-} while (tentarNovamente == 'S' || tentarNovamente == 's'); 
+        } while (tentarNovamente == 'S' || tentarNovamente == 's');
+
     } 
 
-    printf("\nDeseja realizar novo lote de cadastros? (S/N): ");
+    printf("\nDeseja realizar um novo lote de cadastros? (S/N): ");
     scanf(" %c", &continuar);
     getchar();
 
-} 
+}
 
 printf("\n=== RELATORIO FINAL ===\n");
 printf("Aprovados  : %d\n", qtdAprovados);
@@ -174,4 +180,4 @@ printf("Em Analise : %d\n", qtdAnalise);
 printf("Negados    : %d\n", qtdReprovados);
 
 return 0;
-}
+} 
