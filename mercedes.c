@@ -29,8 +29,10 @@ int main(){
  char cpfCliente[20];
  char emailCliente[45];
  char telefoneCliente[20];
+ char tentarNovamente = 'S';
  float rendaMensal;
- float precoCarro;
+ float precoCarro = 0.0;
+ int opcaoCarro;
  int codigoStatus;
 
 
@@ -56,11 +58,9 @@ int main(){
     printf("2-Digite a renda mensal do cliente (R$): ");
     scanf("%f", &rendaMensal);
 
-    printf("3-Digite o preço do carro desejado (R$): ");
-    scanf("%f", &precoCarro);
-
 ///////////////////////////////////////////////////////////
 
+do {
     printf("\n\n-------MENU MODELOS----------\n\n");
     printf("1 - Classe B 180 1.7 Automática  2011 (R$ 37.000)\n");
     printf("2 - C 180 Kompressor 2010 (R$ 59.900)\n");   
@@ -72,20 +72,47 @@ int main(){
     printf("8 - GLE 2025 / 2026 (R$ 784.900,00)\n");
     printf("9 - GT Coupé 2025 / 2026 (R$ 1.735.900,00\n");  
     printf("10 - SUV Classe G 2025 / 2026 (R$ 2.111.900,00) \n");     
-  
+    printf("Escolha o numero do modelo desejado: ");
+    scanf("%d", &opcaoCarro);
+    getchar();
 
+    switch (opcaoCarro) {
+            case 1:  precoCarro = 37000.00;   
+            break;
+            case 2:  precoCarro = 59900.00;   
+            break;
+            case 3:  precoCarro = 92000.00;   
+            break;
+            case 4:  precoCarro = 100000.00;  
+            break;
+            case 5:  precoCarro = 362900.00;  
+            break;
+            case 6:  precoCarro = 396900.00;  
+            break;
+            case 7:  precoCarro = 562900.00;  
+            break;
+            case 8:  precoCarro = 784900.00;  
+            break;
+            case 9:  precoCarro = 1735900.00; 
+            break;
+            case 10: precoCarro = 2111900.00; 
+            break;
+            default:
+                printf("Opcao invalida! Atribuindo valor padrao de R$ 37.000,00.\n");
+                precoCarro = 37000.00;
+                break;
+        }
 
-    printf("------------------------------------\n");
-    printf("DADOS CADASTRASDOS\n");
-    printf("------------------------------------\n");
-
-    printf("Nome do cliente: %s\n", nameCliente);
-    printf("Data de nascimento: %s\n", dataNascimento);
-    printf("CPF do cliente: %s\n", cpfCliente);
-    printf("E-mail do cliente: %s\n", emailCliente);
-    printf("Telefone do cliente: %s\n", telefoneCliente);
-    printf("Renda mensal do cliente: R$ %.2f\n", rendaMensal);
-    printf("Preço do carro desejado: R$ %.2f\n", precoCarro);
+printf("\n------------------------------------\n");
+        printf("DADOS CADASTRADOS\n");
+        printf("------------------------------------\n");
+        printf("Nome do cliente         : %s", nameCliente);
+        printf("Data de nascimento      : %s", dataNascimento);
+        printf("CPF do cliente          : %s", cpfCliente);
+        printf("E-mail do cliente       : %s", emailCliente);
+        printf("Telefone do cliente     : %s", telefoneCliente);
+        printf("Renda mensal do cliente : R$ %.2f\n", rendaMensal);
+        printf("Preco do carro desejado : R$ %.2f\n", precoCarro);
 
     printf("\n\n========ANALISE DE COMPRA============\n\n");
 
@@ -103,30 +130,48 @@ switch (codigoStatus) {
     case 1: 
         printf("Status: COMPRA APROVADA\n");
         printf("Parabéns! Você está apto a realizar a compra do carro desejado.\n");
+        qtdAprovados++;
+        tentarNovamente = 'N';
         break;
 
     case 2:
         printf("Status: COMPRA EM ANALISE!\n");
         printf("Seu pedido está em análise. É necessario fiador ou  uma entrada maior.\n");
+        qtdAnalise++;
+        tentarNovamente = 'N';
         break;
 
-    case 3:
+   case 3:
         printf("Status: COMPRA NEGADA!\n");
         printf("Renda insuficiente para a faixa deste veiculo.\n");
+        qtdReprovados++;
+        
+        printf("\nDeseja tentar outro modelo? (S/N): "); 
+        scanf(" %c", &tentarNovamente);                  
+        getchar();                                       
         break;
 
     default:
         printf("Status: CÓDIGO INVÁLIDO!\n");
+        tentarNovamente = 'N';
         break;
 }
 
 printf("--------------------------------------------------\n");
 
+} while (tentarNovamente == 'S' || tentarNovamente == 's'); 
+    } 
+
+    printf("\nDeseja realizar novo lote de cadastros? (S/N): ");
+    scanf(" %c", &continuar);
+    getchar();
+
+} 
+
+printf("\n=== RELATORIO FINAL ===\n");
+printf("Aprovados  : %d\n", qtdAprovados);
+printf("Em Analise : %d\n", qtdAnalise);
+printf("Negados    : %d\n", qtdReprovados);
+
+return 0;
 }
-}
-}
-
-
-
-
-
