@@ -1,0 +1,130 @@
+#include <stdio.h>
+
+int main(){
+
+    char continuar;
+    int cont;
+    int totalClientes, i;
+    int qtdAprovados = 0;
+    int qtdAnalise = 0;
+    int qtdReprovados = 0;
+
+    printf("\n===== SISTEMA DE CONCESSIONARIA - MERCEDES BENZ =====\n");
+
+    printf("Deseja cadastrar um cliente? (S/N): ");
+    scanf("%c", &continuar);
+    getchar();
+
+    while (continuar == 'S' || continuar == 's') {
+    
+    printf("Quantos clientes deseja cadastrar para avaliacao? ");
+    scanf("%d", &totalClientes);
+    getchar(); 
+
+    for (i = 1; i <= totalClientes; i++) {
+
+
+ char nameCliente[50];
+ char dataNascimento[15];
+ char cpfCliente[20];
+ char emailCliente[45];
+ char telefoneCliente[20];
+ float rendaMensal;
+ float precoCarro;
+ int codigoStatus;
+
+
+    printf("-------------------------------------\n");
+    printf("\nCADASTRO DE CLIENTE %d\n", i);
+    printf("------------------------------------\n");
+
+    printf("1-Digite o nome do cliente: ");
+    fgets(nameCliente, 50, stdin);
+
+    printf("1.1-Digite a data de nascimento do cliente (dd/mm/aaaa): ");
+    fgets(dataNascimento, 15, stdin);
+
+    printf("1.2-Digite o CPF do cliente: ");
+    fgets(cpfCliente, 20, stdin);
+
+    printf("1.3-Digite o e-mail do cliente: ");
+    fgets(emailCliente, 45, stdin);
+
+    printf("1.4-Digite o numero de telefone do cliente: ");
+    fgets(telefoneCliente, 20, stdin);
+
+    printf("2-Digite a renda mensal do cliente (R$): ");
+    scanf("%f", &rendaMensal);
+
+    printf("3-Digite o preço do carro desejado (R$): ");
+    scanf("%f", &precoCarro);
+
+///////////////////////////////////////////////////////////
+
+    printf("\n\n-------MENU MODELOS----------\n\n");
+    printf("1 - SUV GLA (R$ 362.900,00))\n");
+    printf("2 - Classe C Sedan (R$ 396.900)\n");
+    printf("3 - GLB (R$ 562.900,00)\n");
+    printf("4 - Classe A Hatchback (R$ 619.900,00)\n");
+    printf("5 - GLE (R$ 784.900,00)\n");
+    printf("6 - GT Coupé (R$ 1.735.900,00\n");  
+    printf("7 - SUV Classe G (R$ 2.111.900,00) \n");      
+
+  
+
+
+    printf("------------------------------------\n");
+    printf("DADOS CADASTRASDOS\n");
+    printf("------------------------------------\n");
+
+    printf("Nome do cliente: %s\n", nameCliente);
+    printf("Data de nascimento: %s\n", dataNascimento);
+    printf("CPF do cliente: %s\n", cpfCliente);
+    printf("E-mail do cliente: %s\n", emailCliente);
+    printf("Telefone do cliente: %s\n", telefoneCliente);
+    printf("Renda mensal do cliente: R$ %.2f\n", rendaMensal);
+    printf("Preço do carro desejado: R$ %.2f\n", precoCarro);
+
+    printf("\n\n========ANALISE DE COMPRA============\n\n");
+
+    if (rendaMensal >= precoCarro * 0.30) {
+        codigoStatus = 1;
+    } 
+    else if (rendaMensal >= precoCarro * 0.15) {
+        codigoStatus = 2; 
+    } 
+    else {
+        codigoStatus = 3;
+    }
+
+switch (codigoStatus) {
+    case 1: 
+        printf("Status: COMPRA APROVADA\n");
+        printf("Parabéns! Você está apto a realizar a compra do carro desejado.\n");
+        break;
+
+    case 2:
+        printf("Status: COMPRA EM ANALISE!\n");
+        printf("Seu pedido está em análise. É necessario fiador ou  uma entrada maior.\n");
+        break;
+
+    case 3:
+        printf("Status: COMPRA NEGADA!\n");
+        printf("Renda insuficiente para a faixa deste veiculo.\n");
+        break;
+
+    default:
+        printf("Status: CÓDIGO INVÁLIDO!\n");
+        break;
+}
+
+printf("--------------------------------------------------\n");
+
+}
+}
+}
+
+
+
+
+
