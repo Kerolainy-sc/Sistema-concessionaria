@@ -62,14 +62,16 @@ int main(){
 ///////////////////////////////////////////////////////////
 
     printf("\n\n-------MENU MODELOS----------\n\n");
-    printf("1 - SUV GLA (R$ 362.900,00))\n");
-    printf("2 - Classe C Sedan (R$ 396.900)\n");
-    printf("3 - GLB (R$ 562.900,00)\n");
-    printf("4 - Classe A Hatchback (R$ 619.900,00)\n");
-    printf("5 - GLE (R$ 784.900,00)\n");
-    printf("6 - GT Coupé (R$ 1.735.900,00\n");  
-    printf("7 - SUV Classe G (R$ 2.111.900,00) \n");      
-
+    printf("1 - Classe B 180 1.7 Automática  2011 (R$ 37.000)\n");
+    printf("2 - C 180 Kompressor 2010 (R$ 59.900)\n");   
+    printf("3 - C 180 2013–2016 (R$ 92.000)\n");
+    printf("4 - Classe A 200 2016–2018 (R$ 100.000)\n");
+    printf("5 - SUV GLA 2025 / 2026 (R$ 362.900,00))\n");
+    printf("6 - Classe C Sedan 2025 / 2026 (R$ 396.900)\n");
+    printf("7 - GLB 2025 / 2026 (R$ 562.900,00)\n");
+    printf("8 - GLE 2025 / 2026 (R$ 784.900,00)\n");
+    printf("9 - GT Coupé 2025 / 2026 (R$ 1.735.900,00\n");  
+    printf("10 - SUV Classe G 2025 / 2026 (R$ 2.111.900,00) \n");     
   
 
 
